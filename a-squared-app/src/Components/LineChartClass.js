@@ -1,5 +1,12 @@
 import { Component } from "react";
 import CanvasJSReact from "../canvasjs.react";
+
+/* Other React Libraries from data vis prof
+
+  https://Plotly.com/javascript/react/
+
+*/
+
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 var dps = [{ x: 1, y: 0 }]; //dataPoints.
 var xVal = dps.length + 1;

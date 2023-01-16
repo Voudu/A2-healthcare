@@ -1,7 +1,18 @@
-$text-color: white;
-$background-color: #2646ad;
-$main-color: #4f77fa;
-$accent-color: #fa8869;
+$text-color: #c069fa;
+// $background-color: #6c0a99;
+$background-color: white;
+$main-color: #b4b4b4;
+// $accent-color: #c069fa;
+$accent-color: #c069fab2;
+$shadow-color: lightgrey;
+$button-color-1: rgba(148, 67, 185, 0.84);
+$button-color-2: rgba(57, 31, 91, 0.84);
+$button-color-1-hover: #b384c9;
+$button-color-2-hover: #391f5b;
+
+.hideScroll {
+  overflow: hidden;
+}
 
 @mixin FlexCenter {
   display: flex;
@@ -31,7 +42,7 @@ $accent-color: #fa8869;
   }
 }
 
-@mixin scaleOutUnderline {
+@mixin scaleOutUnderline($lineColor) {
   position: relative;
   &:after {
     content: "";
@@ -39,7 +50,7 @@ $accent-color: #fa8869;
     bottom: 0;
     left: 0;
     width: 100%;
-    border-bottom: 2px solid $accent-color;
+    border-bottom: 2px solid $lineColor;
     opacity: 1;
     transform: scale(0);
     transform-origin: center;
@@ -58,10 +69,85 @@ $accent-color: #fa8869;
 }
 
 @mixin boxShadow {
-  box-shadow: 5px 5px 10px 1px lightgrey;
+  box-shadow: 5px 5px 10px 1px $shadow-color;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
   &:hover {
-    box-shadow: 9px 9px 18px 1px lightgrey;
+    box-shadow: 9px 9px 18px 1px $shadow-color;
     transform: scale(1.02);
+  }
+}
+
+@mixin staticBoxShadow {
+  box-shadow: 5px 5px 10px 1px $shadow-color;
+}
+
+@mixin Card {
+  @include staticBoxShadow();
+  @include FlexCenter();
+  padding: 2em;
+  border-radius: 10px;
+  border: none;
+}
+
+@mixin Grid3x3 {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+@mixin Grid3x2 {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+@mixin shield {
+  position: absolute;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.132);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+@mixin button-72 {
+  align-items: center;
+  background-color: initial;
+  background-image: linear-gradient($button-color-1, $button-color-2 50%);
+  border-radius: 42px;
+  border-width: 0;
+  box-shadow: rgba(57, 31, 91, 0.24) 0 2px 2px,
+    rgba(179, 132, 201, 0.4) 0 8px 12px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  line-height: 10px;
+  margin: 0;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(255, 255, 255, 0.4) 0 0 4px,
+    rgba(255, 255, 255, 0.2) 0 0 12px, rgba(57, 31, 91, 0.6) 1px 1px 4px,
+    rgba(57, 31, 91, 0.32) 4px 4px 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  flex-direction: column;
+  &:hover {
+    background-image: linear-gradient(
+      $button-color-1-hover,
+      $button-color-2-hover 50%
+    );
+    flex-direction: column;
   }
 }

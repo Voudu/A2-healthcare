@@ -18,7 +18,7 @@ function Patient(props) {
         <h3>
           {props.patient.lastName}, {props.patient.firstName}
         </h3>
-        <p>Patient UUID</p>
+        <p>{props.id}</p>
       </div>
       <div className="patient-data">
         <div className="data-item">

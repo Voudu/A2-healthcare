@@ -7,6 +7,9 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Dashboard from "./Pages/Dashboard";
 import PatientSelect from "./Pages/PatientSelect";
+import NewPatient from "./Pages/NewPatient";
+import PatientRecords from "./Pages/PatientRecords";
+import CustomizedDialogs from "./Components/PopoutDialog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +21,8 @@ root.render(
           <Route path="/Home" element={<Home />} /> //this is just a placeholder
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/PatientSelect" element={<PatientSelect />} />
+          <Route path="/NewPatient" element={<CustomizedDialogs>  <NewPatient /> </CustomizedDialogs>} />
+          <Route path="/PatientRecords" element={<PatientRecords />} />
         </Routes>
       </main>
     </div>

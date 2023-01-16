@@ -1,31 +1,40 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import getAge from "../Functions/getAge";
 import "../CSS/Dashboard.css";
+
 function PatientInfo(props) {
   const patient = props.patient;
+  const navigate = useNavigate();
 
-  function getAge(dob) {
-    let dobParts = dob.split("/");
-    let today = new Date();
-    let dobDate = new Date(dobParts[2], dobParts[0] - 1, dobParts[1]);
-    let diff = today - dobDate;
-    let age = Math.floor(diff / 31557600000);
-    return age;
-  }
-  // This has the actual tags for the patient info
   return (
-    <div>
-      <h2 className="titleDash">
-        Patient Dashboard
-      </h2>
-      <div>
-        <h3 className="patientNameDash">
+    <div className="patientInfo-Container">
+      <div class="centerObjectDash">
+        {/* <h2 className="titleDash">Patient Info:</h2> */}
+        <h2 className="nameDash">
           {patient.lastName}, {patient.firstName}
-        </h3>
-        <p className="bdayDash">DOB: {patient.dateOfBirth}</p>
+        </h2>
+      </div>
+
+      <div className="patientInfoDash">
+        <p>DOB: {patient.dateOfBirth}</p>
         <p>Age: {getAge(patient.dateOfBirth)}</p>
         <p>Height: {patient.height} cm</p>
         <p>Weight: {patient.weight} kg</p>
         <p>Sex: {patient.sex}</p>
+      </div>
+      <div class="centerObjectDash">
+        <button
+          class="button-72"
+          role="button"
+          onClick={() => {
+            navigate("/PatientRecords", {
+              state: { username: props.username, patient: patient },
+            });
+          }}
+        >
+          Show full data
+        </button>
       </div>
     </div>
   );
