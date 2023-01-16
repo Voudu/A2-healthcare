@@ -1,0 +1,67 @@
+$text-color: white;
+$background-color: #2646ad;
+$main-color: #4f77fa;
+$accent-color: #fa8869;
+
+@mixin FlexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin slideInUnderline {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    border-bottom: 2px solid $accent-color;
+    opacity: 0;
+    transition: opacity 100ms;
+    transition: 0.5s;
+  }
+  &:hover,
+  &:focus {
+    &:after {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}
+
+@mixin scaleOutUnderline {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 2px solid $accent-color;
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+    transition: 0.5s;
+  }
+  &:hover,
+  &:focus {
+    &:after {
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin border {
+  border: 1px solid grey;
+}
+
+@mixin boxShadow {
+  box-shadow: 5px 5px 10px 1px lightgrey;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 9px 9px 18px 1px lightgrey;
+    transform: scale(1.02);
+  }
+}

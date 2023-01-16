@@ -1,0 +1,60 @@
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 1.5em;
+  width: 50%;
+  max-width: 500px;
+  position: absolute;
+  top: 0.5em;
+  right: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#exit,
+#records,
+#patients {
+  position: relative;
+  cursor: pointer;
+  padding: 0.25em;
+}
+
+#exit:after,
+#records:after,
+#patients:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  border-bottom: 2px solid #fa8869;
+  opacity: 0;
+  -webkit-transition: opacity 100ms;
+  transition: opacity 100ms;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#exit:hover:after, #exit:focus:after,
+#records:hover:after,
+#records:focus:after,
+#patients:hover:after,
+#patients:focus:after {
+  width: 100%;
+  opacity: 1;
+}
+
+#exit:hover,
+#records:hover,
+#patients:hover {
+  color: #fa8869;
+}
+/*# sourceMappingURL=Header.css.map */

@@ -1,0 +1,24 @@
+.greeting {
+  margin: 1em 0 0.5em 1em;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.25em;
+  width: 90%;
+  max-width: 950px;
+}
+/*# sourceMappingURL=PatientSelect.css.map */

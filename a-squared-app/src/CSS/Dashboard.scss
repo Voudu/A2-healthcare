@@ -1,0 +1,11 @@
+@import "variables";
+
+.titleDash{
+    @include FlexCenter;
+    color: $main-color;
+    margin-top: 1.5em;
+    margin-left: 3em;
+    padding: .25em;
+    width: 50%;
+    right: 500;
+    }
